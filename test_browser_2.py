@@ -4,7 +4,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-
+from page.sbis_contacts import SbisContactsPage
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -12,7 +12,9 @@ logger.setLevel(logging.DEBUG)
 # Создаем обработник для записи в файл
 file_handler = logging.FileHandler('test.logo', mode='w')
 file_handler.setLevel(logging.DEBUG)
-file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_formatter = logging.Formatter('%(asctime)s - '
+                                   '%(name)s - %(levelname)s - '
+                                   '%(message)s')
 file_handler.setFormatter(file_formatter)
 
 # Создаем обработник для вывода в консоль
@@ -33,14 +35,14 @@ logger.error("You are trying to divide by zero")
 logger.critical("Internet is down")
 
 
-
-@pytest.fixture(scope="module")# Определяем фикстуру для браузера с областью действия "module"
+@pytest.fixture(scope="module")
 def browser():
-    browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))#созд экземпляр браузера Chrome
-    yield browser#морозимся и возвр браузер
-    browser.quit()#все закр после теста
+    browser = webdriver.Chrome(service=ChromeService
+                               (ChromeDriverManager().install()))
+    yield browser
+    browser.quit()
 
-from page.sbis_contacts import SbisContactsPage
+
 class TestSbisContactsPage:
 
     def test_region_navigation(self, browser):
@@ -56,7 +58,9 @@ class TestSbisContactsPage:
             print(f"Текст элемента: {element_text}")
             assert element_text == 'Кострома'
         current_url_44reg = page.get_current_url()
-        assert current_url_44reg == 'https://sbis.ru/contacts/44-kostromskaya-oblast?tab=clients'
+        assert current_url_44reg == ('https://sbis.ru/'
+                                     'contacts/44-kostromskaya'
+                                     '-oblast?tab=clients')
         time.sleep(5)
         page.click_anchor_to_region()
 
@@ -70,6 +74,8 @@ class TestSbisContactsPage:
             print(f"Текст элемента: {element_text}")
             assert element_text == "Петропавловск-Камчатский"
         current_url_41reg = page.get_current_url()
-        assert current_url_41reg == 'https://sbis.ru/contacts/41-kamchatskij-kraj?tab=clients'
+        assert current_url_41reg == ('https://sbis.ru/'
+                                     'contacts/41-kamchatskij'
+                                     '-kraj?tab=clients')
 
         logger.info('TEST IS END AND VERY WELL')
