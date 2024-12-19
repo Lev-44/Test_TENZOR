@@ -11,27 +11,21 @@ import requests
 
 # Опции для Chrome
 chromeOptions = Options()
-prefs = {"download.default_directory":
-             r"C:\\Python_progect_sobes\\TEST_Project"}
+prefs = {"download.default_directory": r"C:\Python_progect_sobes\TEST_Project"}
 chromeOptions.add_experimental_option("prefs", prefs)
 
-
 class SbisPage:
+
     def __init__(self, browser):
         self.browser = browser
         self.link = "https://sbis.ru/"
-        self.footer_xpath_to_file = ('//*[@id="container"]'
-                                     '/div[2]/div[1]/div[3]/div[3]/ul/li[9]/a')
-        self.for_windows = ('/html/body/div[1]/div[2]'
-                            '/div[1]/div/div[1]/div/div'
-                            '/div/div[2]/div/div[1]/div/div/'
-                            'div[1]/div/div[1]/div[1]/div/div/span')
+        self.footer_xpath_to_file = '//*[@id="container"]/div[2]/div[1]/div[3]/div[3]/ul/li[9]/a'
+        self.for_windows = '/html/body/div[1]/div[2]/div[1]/div/div[1]/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div/div/span'
         self.download_step = 'sbis_ru-DownloadNew-loadLink'
-        self.download_dir = 'C:\\Python_progect_sobes\\TEST_Project'
-        self.file_path = ('C:\\Python_progect_sobes'
-                          '\\TEST_Project\\sbisplugin-setup-web.exe')
-        self.url_path = ('https://update.sbis.ru/'
-                         'Sbis3Plugin/master/win32/sbisplugin-setup-web.exe')
+        self.download_dir ='C:\Python_progect_sobes\TEST_Project'
+
+        self.file_path = 'C:\Python_progect_sobes\TEST_Project\sbisplugin-setup-web.exe'
+        self.url_path = 'https://update.sbis.ru/Sbis3Plugin/master/win32/sbisplugin-setup-web.exe'
 
     def open(self):
         self.browser.get(self.link)
@@ -40,8 +34,7 @@ class SbisPage:
         local_ver = WebDriverWait(self.browser, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.footer_xpath_to_file))
         )
-        self.browser.execute_script("arguments[0]"
-                                    ".scrollIntoView(true);", local_ver)
+        self.browser.execute_script("arguments[0].scrollIntoView(true);", local_ver)
         local_ver.click()
 
     def selected_element(self):
@@ -54,7 +47,7 @@ class SbisPage:
         else:
             print("Элемент не выбран")
 
-    def wait_for_download(self):
+    def wait_for_download(self, filename):
         filename = 'sbisplugin-setup-web.exe'
         while True:
             WebDriverWait(self.browser, 10)
@@ -68,7 +61,7 @@ class SbisPage:
         )
         download.click()
         WebDriverWait(chrome_browser, 10)
-        self.wait_for_download()
+        self.wait_for_download(self)
 
     def get_file_size_from_url(self):
         response = requests.head(self.url_path, allow_redirects=True)
@@ -78,9 +71,7 @@ class SbisPage:
             # Получаем размер файла из заголовков
             return int(response.headers.get('Content-Length'))
         else:
-            raise Exception(f"Не удалось"
-                            f" получить информацию о"
-                            f" файле: {response.status_code}")
+            raise Exception(f"Не удалось получить информацию о файле: {response.status_code}")
 
     def get_file_size(self):
         return os.path.getsize(self.file_path)
@@ -88,9 +79,7 @@ class SbisPage:
 
 @pytest.fixture(scope="module")
 def chrome_browser():
-    browser = (webdriver.Chrome(service=ChromeService(
-        ChromeDriverManager().install()),
-        options=chromeOptions))
+    browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chromeOptions)
     browser.maximize_window()
     yield browser
     browser.quit()
@@ -107,10 +96,10 @@ def test_download(chrome_browser):
     local_file_size = page.get_file_size()
     download_file_size = page.get_file_size_from_url()
 
-    assert download_file_size == local_file_size, \
-        "Размеры файлов не совпадают!"
+    assert download_file_size == local_file_size, "Размеры файлов не совпадают!"
     print('Размеры файлов совпадают!!!')
     # Удаление файла после проверки
-    WebDriverWait(chrome_browser, 40)
+    WebDriverWait(chrome_browser, 50)
     os.remove('C:\\Python_progect_sobes\\'
-              'TEST_Project\\sbisplugin-setup-web.exe')
+    'TEST_Project\\sbisplugin-setup-web.exe')
+
