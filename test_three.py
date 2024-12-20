@@ -110,7 +110,6 @@ def test_download(chrome_browser):
     # Проверка размера файла
     local_file_size = page.get_file_size()
     download_file_size = page.get_file_size_from_url()
-
     assert download_file_size == local_file_size, "Размеры файлов не совпадают!"
     print('Размеры файлов совпадают!!!')
     # Удаление файла после проверки
