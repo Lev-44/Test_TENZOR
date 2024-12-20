@@ -10,7 +10,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 # Создаем обработник для записи в файл
-file_handler = logging.FileHandler('test.logo', mode='w')
+file_handler = logging.FileHandler('test2.log', mode='w')
 file_handler.setLevel(logging.DEBUG)
 file_formatter = logging.Formatter('%(asctime)s - '
                                    '%(name)s - %(levelname)s - '

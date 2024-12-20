@@ -8,6 +8,20 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import os
 import requests
+import time
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+# Создаем обработник для записи в файл
+file_handler = logging.FileHandler('test3.log', mode='w')
+file_handler.setLevel(logging.DEBUG)
+file_formatter = logging.Formatter('%(asctime)s - '
+                                   '%(name)s - %(levelname)s - '
+                                   '%(message)s')
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+logger.debug("This is a harmless debug Message")
 
 # Опции для Chrome
 chromeOptions = Options()
@@ -15,7 +29,6 @@ prefs = {"download.default_directory": r"C:\Python_progect_sobes\TEST_Project"}
 chromeOptions.add_experimental_option("prefs", prefs)
 
 class SbisPage:
-
     def __init__(self, browser):
         self.browser = browser
         self.link = "https://sbis.ru/"
@@ -23,7 +36,6 @@ class SbisPage:
         self.for_windows = '/html/body/div[1]/div[2]/div[1]/div/div[1]/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div/div/span'
         self.download_step = 'sbis_ru-DownloadNew-loadLink'
         self.download_dir ='C:\Python_progect_sobes\TEST_Project'
-
         self.file_path = 'C:\Python_progect_sobes\TEST_Project\sbisplugin-setup-web.exe'
         self.url_path = 'https://update.sbis.ru/Sbis3Plugin/master/win32/sbisplugin-setup-web.exe'
 
@@ -40,28 +52,30 @@ class SbisPage:
     def selected_element(self):
 
         element = WebDriverWait(self.browser, 10).until(
-            EC.presence_of_element_located((By.XPATH, self.for_windows))
-        )
+            EC.presence_of_element_located((By.XPATH, self.for_windows)))
         if element.is_enabled():
             print("Элемент -windows- выбран")
         else:
             print("Элемент не выбран")
 
-    def wait_for_download(self, filename):
+    def wait_for_download(self):
         filename = 'sbisplugin-setup-web.exe'
         while True:
-            WebDriverWait(self.browser, 10)
+            time.sleep(6)
             if filename in os.listdir(self.download_dir):
                 print(f"Файл '{filename}' успешно загружен.")
                 break  # Выходим из цикла, если файл найден
 
     def click_button_download(self):
+
         download = WebDriverWait(self.browser, 10).until(
-            EC.element_to_be_clickable((By.CLASS_NAME, self.download_step))
-        )
+            EC.element_to_be_clickable((By.CLASS_NAME, self.download_step)))
         download.click()
         WebDriverWait(chrome_browser, 10)
-        self.wait_for_download(self)
+        #page.wait_for_download(self)
+
+    def get_local_file_size(file_path):
+        return os.path.getsize(file_path)
 
     def get_file_size_from_url(self):
         response = requests.head(self.url_path, allow_redirects=True)
@@ -91,7 +105,8 @@ def test_download(chrome_browser):
     page.click_button_to_local()
     page.selected_element()
     page.click_button_download()
-    WebDriverWait(chrome_browser, 10)
+    page.wait_for_download()
+    WebDriverWait(chrome_browser, 50)
     # Проверка размера файла
     local_file_size = page.get_file_size()
     download_file_size = page.get_file_size_from_url()
@@ -100,6 +115,5 @@ def test_download(chrome_browser):
     print('Размеры файлов совпадают!!!')
     # Удаление файла после проверки
     WebDriverWait(chrome_browser, 50)
-    os.remove('C:\\Python_progect_sobes\\'
-    'TEST_Project\\sbisplugin-setup-web.exe')
-
+    os.remove('C:\Python_progect_sobes\TEST_Project\sbisplugin-setup-web.exe')
+    logger.info('TEST IS END AND VERY WELL')

@@ -1,0 +1,71 @@
+2024-12-20 10:59:43,180 - root - DEBUG - This is a harmless debug Message
+2024-12-20 10:59:43,180 - root - INFO - This is just an information
+2024-12-20 10:59:43,180 - root - WARNING - It is a Warning. Please make changes
+2024-12-20 10:59:43,181 - root - ERROR - You are trying to divide by zero
+2024-12-20 10:59:43,181 - root - CRITICAL - Internet is down
+2024-12-20 10:59:43,186 - WDM - INFO - ====== WebDriver manager ======
+2024-12-20 10:59:46,326 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-20 10:59:46,329 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): googlechromelabs.github.io:443
+2024-12-20 10:59:46,458 - urllib3.connectionpool - DEBUG - https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/11" 200 8775
+2024-12-20 10:59:46,465 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-12-20 10:59:46,467 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): googlechromelabs.github.io:443
+2024-12-20 10:59:46,580 - urllib3.connectionpool - DEBUG - https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/11" 200 8775
+2024-12-20 10:59:46,591 - WDM - INFO - Driver [C:\Users\ЛевАлександрович\.wdm\drivers\chromedriver\win64\131.0.6778.204\chromedriver-win32/chromedriver.exe] found in cache
+2024-12-20 10:59:46,593 - selenium.webdriver.common.driver_finder - DEBUG - Skipping Selenium Manager; path to chrome driver specified in Service class: C:\Users\ЛевАлександрович\.wdm\drivers\chromedriver\win64\131.0.6778.204\chromedriver-win32/chromedriver.exe
+2024-12-20 10:59:46,642 - selenium.webdriver.common.service - DEBUG - Started executable: `C:\Users\ЛевАлександрович\.wdm\drivers\chromedriver\win64\131.0.6778.204\chromedriver-win32/chromedriver.exe` in a child process with pid: 28036 using 0 to output -3
+2024-12-20 10:59:47,155 - selenium.webdriver.remote.remote_connection - DEBUG - POST http://localhost:54179/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'goog:chromeOptions': {'extensions': [], 'args': []}}}}
+2024-12-20 10:59:47,155 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:54179
+2024-12-20 10:59:48,160 - urllib3.connectionpool - DEBUG - http://localhost:54179 "POST /session HTTP/11" 200 0
+2024-12-20 10:59:48,160 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"131.0.6778.205","chrome":{"chromedriverVersion":"131.0.6778.204 (52183f9e99a61056f9b78535f53d256f1516f2a0-refs/branch-heads/6778_155@{#7})","userDataDir":"C:\\Users\\2DD9~1\\AppData\\Local\\Temp\\scoped_dir28036_1962785498"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:54184"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"cec63ed92ecb26ddf6e242eea9797146"}} | headers=HTTPHeaderDict({'Content-Length': '886', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 10:59:48,161 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 10:59:48,164 - root - INFO - ZAPUSK TESTA 
+2024-12-20 10:59:48,164 - selenium.webdriver.remote.remote_connection - DEBUG - POST http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/url {'url': 'https://sbis.ru/contacts/'}
+2024-12-20 10:59:50,521 - urllib3.connectionpool - DEBUG - http://localhost:54179 "POST /session/cec63ed92ecb26ddf6e242eea9797146/url HTTP/11" 200 0
+2024-12-20 10:59:50,521 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 10:59:50,521 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 10:59:50,522 - selenium.webdriver.remote.remote_connection - DEBUG - POST http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/element {'using': 'css selector', 'value': '[id="city-id-2"]'}
+2024-12-20 10:59:51,195 - urllib3.connectionpool - DEBUG - http://localhost:54179 "POST /session/cec63ed92ecb26ddf6e242eea9797146/element HTTP/11" 200 0
+2024-12-20 10:59:51,195 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.27"}} | headers=HTTPHeaderDict({'Content-Length': '126', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 10:59:51,196 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 10:59:51,196 - root - INFO -  TEST 
+2024-12-20 10:59:51,196 - selenium.webdriver.remote.remote_connection - DEBUG - GET http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/element/f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.27/text {}
+2024-12-20 10:59:51,214 - urllib3.connectionpool - DEBUG - http://localhost:54179 "GET /session/cec63ed92ecb26ddf6e242eea9797146/element/f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.27/text HTTP/11" 200 0
+2024-12-20 10:59:51,214 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":"Кострома"} | headers=HTTPHeaderDict({'Content-Length': '28', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 10:59:51,215 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 10:59:51,215 - selenium.webdriver.remote.remote_connection - DEBUG - GET http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/url {}
+2024-12-20 10:59:51,220 - urllib3.connectionpool - DEBUG - http://localhost:54179 "GET /session/cec63ed92ecb26ddf6e242eea9797146/url HTTP/11" 200 0
+2024-12-20 10:59:51,221 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":"https://sbis.ru/contacts/44-kostromskaya-oblast?tab=clients"} | headers=HTTPHeaderDict({'Content-Length': '71', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 10:59:51,221 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 10:59:56,222 - selenium.webdriver.remote.remote_connection - DEBUG - POST http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/element {'using': 'xpath', 'value': '//*[@id="container"]/div[1]/div/div[3]/div[2]/div[1]/div/div[2]/span/span'}
+2024-12-20 10:59:56,250 - urllib3.connectionpool - DEBUG - http://localhost:54179 "POST /session/cec63ed92ecb26ddf6e242eea9797146/element HTTP/11" 200 0
+2024-12-20 10:59:56,250 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.28"}} | headers=HTTPHeaderDict({'Content-Length': '126', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 10:59:56,251 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 10:59:56,251 - selenium.webdriver.remote.remote_connection - DEBUG - POST http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/execute/sync {'script': 'arguments[0].click()', 'args': [{'element-6066-11e4-a52e-4f735466cecf': 'f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.28'}]}
+2024-12-20 10:59:56,278 - urllib3.connectionpool - DEBUG - http://localhost:54179 "POST /session/cec63ed92ecb26ddf6e242eea9797146/execute/sync HTTP/11" 200 0
+2024-12-20 10:59:56,278 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 10:59:56,279 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 11:00:04,281 - selenium.webdriver.remote.remote_connection - DEBUG - POST http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/element {'using': 'xpath', 'value': '//*[@id="popup"]/div[2]/div/div/div/div/div[2]/div/ul/li[43]/span/span'}
+2024-12-20 11:00:04,308 - urllib3.connectionpool - DEBUG - http://localhost:54179 "POST /session/cec63ed92ecb26ddf6e242eea9797146/element HTTP/11" 200 0
+2024-12-20 11:00:04,309 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.34"}} | headers=HTTPHeaderDict({'Content-Length': '126', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 11:00:04,309 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 11:00:04,310 - selenium.webdriver.remote.remote_connection - DEBUG - POST http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/element/f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.34/click {}
+2024-12-20 11:00:04,440 - urllib3.connectionpool - DEBUG - http://localhost:54179 "POST /session/cec63ed92ecb26ddf6e242eea9797146/element/f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.34/click HTTP/11" 200 0
+2024-12-20 11:00:04,440 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 11:00:04,440 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 11:00:12,441 - selenium.webdriver.remote.remote_connection - DEBUG - POST http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/element {'using': 'css selector', 'value': '[id="city-id-2"]'}
+2024-12-20 11:00:12,459 - urllib3.connectionpool - DEBUG - http://localhost:54179 "POST /session/cec63ed92ecb26ddf6e242eea9797146/element HTTP/11" 200 0
+2024-12-20 11:00:12,460 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.27"}} | headers=HTTPHeaderDict({'Content-Length': '126', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 11:00:12,460 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 11:00:12,460 - selenium.webdriver.remote.remote_connection - DEBUG - GET http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/element/f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.27/text {}
+2024-12-20 11:00:12,480 - urllib3.connectionpool - DEBUG - http://localhost:54179 "GET /session/cec63ed92ecb26ddf6e242eea9797146/element/f.77F4C13AAF52352F830AF9F2D629BB01.d.68A1DC894C60092DEF742D2D37EB6F70.e.27/text HTTP/11" 200 0
+2024-12-20 11:00:12,480 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":"Петропавловск-Камчатский"} | headers=HTTPHeaderDict({'Content-Length': '59', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 11:00:12,481 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 11:00:12,481 - selenium.webdriver.remote.remote_connection - DEBUG - GET http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146/url {}
+2024-12-20 11:00:12,491 - urllib3.connectionpool - DEBUG - http://localhost:54179 "GET /session/cec63ed92ecb26ddf6e242eea9797146/url HTTP/11" 200 0
+2024-12-20 11:00:12,491 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":"https://sbis.ru/contacts/41-kamchatskij-kraj?tab=clients"} | headers=HTTPHeaderDict({'Content-Length': '68', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 11:00:12,491 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2024-12-20 11:00:12,492 - root - INFO - TEST IS END AND VERY WELL
+2024-12-20 11:00:12,496 - selenium.webdriver.remote.remote_connection - DEBUG - DELETE http://localhost:54179/session/cec63ed92ecb26ddf6e242eea9797146 {}
+2024-12-20 11:00:12,585 - urllib3.connectionpool - DEBUG - http://localhost:54179 "DELETE /session/cec63ed92ecb26ddf6e242eea9797146 HTTP/11" 200 0
+2024-12-20 11:00:12,586 - selenium.webdriver.remote.remote_connection - DEBUG - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2024-12-20 11:00:12,586 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
